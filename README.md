@@ -9,6 +9,6 @@ Ja osobiście korzystałem z localhosta dostępnego w WebStorm.</p>
         <li>Bootstrap</li>
         <li>jQuery</li>
         <li>font-awesome</li>
-        <li>własne akrusze stylów</li>
+        <li>własne arkusze stylów</li>
     </ul>
 </div>
