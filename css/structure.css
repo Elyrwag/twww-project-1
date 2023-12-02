@@ -1,0 +1,209 @@
+/*UWAGA: czasem nie bylo sensu rozbijac klas/selektorow*/
+/****znajduja sie one w trzech ostatnich kategoriach****/
+
+/************************Display************************/
+#nauka-subnav, #hobby-subnav, #qa-subnav {
+    display: none;
+}
+
+#menu > .row {
+    display: unset;
+}
+/*******************************************************/
+
+/*******************Width and height********************/
+.btn, #menu-navbar a {
+    width: 100%;
+}
+
+body, .box, .scrollspy, .container-fluid > .row {
+    height: 100vh;
+}
+/*******************************************************/
+
+/*************************Font**************************/
+body {
+    font-family: Arial, sans-serif;
+}
+
+.subnav a, .subnav button {
+    font-size: 13px !important;
+}
+
+.btn > a {
+    font-size: 16px;
+}
+
+#contact-bar p {
+    font-size: 12px;
+}
+/*******************************************************/
+
+/**********************Text align***********************/
+header, footer, h1 {
+    text-align: center;
+}
+
+.btn {
+    text-align: left;
+}
+/*******************************************************/
+
+/******************Margin and padding*******************/
+.box, body, .container-fluid > .row {
+    margin: 0 0;
+}
+
+section, section > h2, li {
+    margin-bottom: 20px;
+}
+
+header {
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+article {
+    margin: 3rem;
+}
+/*******************************************************/
+
+/************************Colors*************************/
+#spoiler:hover, .custom-text-color, #menu-navbar button, .social-icons a {
+    color: #c5c7c5;
+}
+
+#spoiler:hover, ::-webkit-scrollbar {
+    background-color: #212529;
+}
+
+::-webkit-scrollbar-thumb {
+    background: forestgreen;
+}
+
+.social-icons a:hover, hr {
+    color: forestgreen;
+}
+
+.custom-links a, .custom-links a:hover {
+    color: #22a822;
+}
+/*******************************************************/
+
+/***********************Overflow************************/
+body, article {
+    overflow: hidden;
+}
+
+.scrollspy{
+    overflow: auto;
+}
+/*******************************************************/
+
+/************************Border*************************/
+hr {
+    border-top: 3px solid;
+}
+
+.border-left {
+    border-left: 2px solid forestgreen;
+}
+
+.border-right {
+    border-right: 2px solid forestgreen;
+}
+/*******************************************************/
+
+/*************************Zoom**************************/
+.zoom {
+    transition: transform .2s;
+    margin-bottom: 50px;
+}
+
+.zoom:hover {
+    transform: scale(1.1);
+}
+/*******************************************************/
+
+/************************Media**************************/
+@media (max-width: 992px) {
+    #contact-bar {
+        display: none;
+    }
+}
+
+@media (max-width: 786px) {
+    body {
+        overflow: initial;
+        overflow-x: hidden;
+        height: auto;
+    }
+
+    body::-webkit-scrollbar {
+        display: none;
+    }
+
+    #menu {
+        max-height: 10%;
+        width: 100%;
+        border-right: unset;
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+    }
+
+    #menu .row {
+        display: inherit;
+    }
+}
+/*******************************************************/
+
+/*************************Other*************************/
+html, .scrollspy {
+    scroll-behavior: smooth;
+}
+
+section {
+    padding: 20px;
+    border-radius: 5px;
+    border: 1px solid forestgreen;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+footer {
+    height: 40px;
+    color: #777;
+}
+
+#spoiler {
+    color: transparent;
+    background-color: black;
+}
+
+.subnav {
+    width: 85%;
+    margin-left: auto;
+}
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+    position: fixed;
+    left: auto;
+    right: 8px;
+    bottom: 3px;
+}
+
+.social-icons a {
+    margin: 5px;
+    font-size: 24px;
+}
+
+.custom-links a {
+    text-decoration: none;
+}
+
+.custom-links a:hover {
+    text-decoration: underline;
+}
+/*******************************************************/

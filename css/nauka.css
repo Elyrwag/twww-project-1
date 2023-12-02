@@ -1,0 +1,13 @@
+@media (min-width: 787px) {
+    #nauka-subnav {
+        display: flex;
+    }
+}
+
+#wyksztalcenie-list {
+    list-style-type: '\2714\ ';
+}
+
+#wyksztalcenie-list li::marker {
+    color: green;
+}

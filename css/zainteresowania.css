@@ -1,0 +1,14 @@
+@media (min-width: 787px) {
+    #hobby-subnav {
+        display: flex;
+    }
+}
+
+#games-list li {
+    list-style-type: '🎮 ';
+}
+
+.hobby-section h4 {
+    margin-bottom: 20px;
+    text-decoration: forestgreen underline;
+}

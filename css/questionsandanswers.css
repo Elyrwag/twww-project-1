@@ -1,0 +1,63 @@
+@media (min-width: 787px) {
+    #qa-subnav {
+        display: flex;
+    }
+}
+
+fieldset {
+    all: unset;
+    width: 80%;
+    border: 1px forestgreen solid;
+}
+
+legend {
+    all: unset;
+    text-align: center;
+}
+
+fieldset textarea {
+    resize: none;
+    width: 95%;
+    height: 100px;
+}
+
+form {
+    padding-left: 20px;
+}
+
+form input, form button {
+    width: 95%;
+}
+
+form input, form textarea {
+    background-color: #c5c7c5;
+}
+
+form span {
+    display: flex;
+    justify-content: center;
+    padding-right: 20px;
+}
+
+#submit {
+    width: 25%;
+    text-align: center;
+    color: inherit;
+}
+
+.btn-outline-primary {
+    --bs-btn-color: forestgreen;
+    --bs-btn-border-color: forestgreen;
+    --bs-btn-hover-bg: forestgreen;
+    --bs-btn-hover-border-color: forestgreen;
+    --bs-btn-focus-shadow-rgb: forestgreen;
+    --bs-btn-active-bg: forestgreen;
+    --bs-btn-active-border-color: forestgreen;
+    --bs-btn-disabled-color: forestgreen;
+    --bs-btn-disabled-border-color: forestgreen;
+}
+
+.qa-section h4 {
+    margin-bottom: 20px;
+    text-decoration: forestgreen underline;
+}

@@ -1,0 +1,139 @@
+<link href="../css/questionsandanswers.css" type="text/css" rel="stylesheet">
+<div class="bg-dark scrollspy">
+    <div id="QandA">
+        <header>
+            <h1>Pytania i odpowiedzi</h1>
+            <h6>
+                Uważasz, że napisałem o sobie za mało i wciąż masz pytania?<br>
+                Tutaj znajdziesz pytania od innych użytkowników - może Twoje pytanie już tu jest?
+            </h6>
+        </header>
+        <article class="custom-links">
+            <br id="QandA-answered">
+            <section>
+                <h2>Pytania z odpowiedziami:</h2>
+                <div id="answered">
+                    <div class="qa-section">
+                        <h4>Jaki jest Twój ulubiony klub piłkarski?</h4>
+                        <p>
+                            Moim ulubionym klubem jest
+                            <a href="https://www.youtube.com/watch?v=GhGBLRWbsug" target="_blank" rel=”noreferrer”>
+                                FC Barcelona
+                            </a>
+                            .
+                        </p>
+                    </div>
+                    <hr>
+                    <div class="qa">
+                        <h4>Ulubione jedzenie?</h4>
+                        <p>
+                            Nie ma tutaj jednoznacznej odpowiedzi 😅. Pizza, makaron z serem i kurczakiem, pierogi,
+                            tradycyjny niedzielny polski obiad (czyt. schabowy z ziemniakami), ... długo by wymieniać!
+                        </p>
+                    </div>
+                    <hr>
+                    <div class="qa">
+                        <h4>Jak to jest być studentem, dobrze?</h4>
+                        <p>Moim zdaniem to nie ma tak, że dobrze albo że nie dobrze ...</p>
+                    </div>
+                </div>
+            </section>
+            <br id="QandA-awaiting">
+            <section data-bs-theme="dark">
+                <h2>Pytania oczekujące na odpowiedź:</h2>
+                <div id="awaiting">
+                    <h4>Gal Anonim</h4>
+                    <p>Gdzie widzisz siebie za 5 lat?</p>
+                    <hr>
+                    <h4>Brat Gala Anonima</h4>
+                    <p>Lubisz biegać?</p>
+                </div>
+            </section>
+            <br id="QandA-form">
+            <section>
+                <h2>Formularz:</h2>
+                <p>Nie wstydź się! Zadaj mi pytanie, a ja odpowiem najszybciej jak tylko będę potrafił 😉</p>
+                <fieldset class="mb-4">
+                    <legend>Napisz do mnie:</legend>
+                    <form>
+                        <label for="pseudonim">Pseudonim:</label><br>
+                        <input type="text" id="pseudonim" name="pseudonim"><br>
+                        <label for="question">Wiadomość:</label><br>
+                        <textarea class="mb-3" id="question" name="question" placeholder="Cześć Paweł!&#10;Jak to jest być studentem, dobrze?"></textarea>
+                        <span>
+                            <button class="mb-3 btn btn-outline-primary" type="submit" value="Submit" id="submit">
+                                Wyślij
+                            </button>
+                        </span>
+                    </form>
+                </fieldset>
+            </section>
+        </article>
+        <footer>
+            <p>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-c-circle mb-1" viewBox="0 0 16 16">
+                    <path d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8Zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0ZM8.146 4.992c-1.212 0-1.927.92-1.927 2.502v1.06c0 1.571.703 2.462 1.927 2.462.979 0 1.641-.586 1.729-1.418h1.295v.093c-.1 1.448-1.354 2.467-3.03 2.467-2.091 0-3.269-1.336-3.269-3.603V7.482c0-2.261 1.201-3.638 3.27-3.638 1.681 0 2.935 1.054 3.029 2.572v.088H9.875c-.088-.879-.768-1.512-1.729-1.512Z"/>
+                </svg>
+                Copyright by Paweł Konefał
+            </p>
+        </footer>
+    </div>
+</div>
+<script>
+    // po wczytaniu tej podstrony, zostaja wczytane pytania (na razie) przechowywane lokalnie
+    // pytania te byly zadane przez uzytkownika w danej sesji
+    writeAwaitingQuestionsToHTML(questionsArray);
+
+    // dodanie eventListenera, ktory po wyslaniu danych przez formularz, wykonuje probe dodania pytania do strony
+    // (a w projekcie nr 2 rowniez do pliku)
+    // w przypadku bledu, wypisuje go do konsoli (uzytkownik informowany jest o bledzie przez funkcje addQuestion)
+    document.querySelector('form').addEventListener('submit', function (e) {
+        e.preventDefault();
+        let pseudonim = document.getElementById('pseudonim').value;
+        let pytanie = document.getElementById('question').value;
+        if(pseudonim !== "" && pytanie !== "") {
+            try {
+                addQuestion(questionsArray, pseudonim, pytanie);
+                alert("Pomyślnie dodano pytanie 😃");
+            } catch (e) {
+                console.log(e);
+            }
+        } else alert("Wypełnij wszystkie pola!");
+    });
+
+    // funkcja dodajaca pytanie do baz (jak wspomniano wczesniej, na razie tylko do strony)
+    // w przypadku bledu, uzytkownik informowany jest o bledzie za pomoca okienka alert,
+    // a blad rzucany jest wyzej i wypisany w konsoli
+    function addQuestion(array, sender, string) {
+        try {
+            // w drugim projekcie bedzie dodane tutaj rowniez zapisywanie pytan do pliku json z wykorzystaniem NodeJS
+            // addToDBFile();
+            let q = [sender, string];
+            array.push(q);
+            // funkcja przyjmuje tablice skladajaca sie z 2-elementowych podtablic, dlatego konieczny jest taki zapis
+            writeAwaitingQuestionsToHTML([q]);
+        } catch (e) {
+            console.log(e);
+            alert("Unexpected error occurred while adding a question. Check the console for more information");
+            throw e;
+        }
+    }
+
+    // funkcja wczytujaca pytania do strony
+    // w przypadku bledu, uzytkownik informowany jest o bledzie za pomoca okienka alert, blad wypisany w konsoli
+    // a pytania nie zostaja wczytane
+    // UWAGA: funkcja przyjmuje tablice skladajaca sie z 2-elementowych podtablic,w projekcie nr 2 ten problem zniknie,
+    // poniewaz pytania beda mialy inna strukture
+    function writeAwaitingQuestionsToHTML(arrayOfQuestions) {
+        try {
+            if(arrayOfQuestions !== undefined) {
+                for (let question of arrayOfQuestions) {
+                    $('#awaiting').append('<hr><h4>' + question[0] + '</h4><p>' + question[1] + '</p>');
+                }
+            }
+        } catch (e) {
+            console.log(e);
+            alert("Unexpected error occurred while loading questions. Check the console for more information");
+        }
+    }
+</script>
