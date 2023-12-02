@@ -42,11 +42,11 @@
             <section data-bs-theme="dark">
                 <h2>Pytania oczekujące na odpowiedź:</h2>
                 <div id="awaiting">
-                    <h4>Gal Anonim</h4>
-                    <p>Gdzie widzisz siebie za 5 lat?</p>
+                    <h4>Gdzie widzisz siebie za 5 lat?</h4>
+                    <p>Gal Anonim</p>
                     <hr>
-                    <h4>Brat Gala Anonima</h4>
-                    <p>Lubisz biegać?</p>
+                    <h4>Lubisz biegać?</h4>
+                    <p>Brat Gala Anonima</p>
                 </div>
             </section>
             <br id="QandA-form">
@@ -93,7 +93,7 @@
         let pytanie = document.getElementById('question').value;
         if(pseudonim !== "" && pytanie !== "") {
             try {
-                addQuestion(questionsArray, pseudonim, pytanie);
+                addQuestion(questionsArray, pytanie, pseudonim);
                 alert("Pomyślnie dodano pytanie 😃");
             } catch (e) {
                 console.log(e);
@@ -104,11 +104,11 @@
     // funkcja dodajaca pytanie do baz (jak wspomniano wczesniej, na razie tylko do strony)
     // w przypadku bledu, uzytkownik informowany jest o bledzie za pomoca okienka alert,
     // a blad rzucany jest wyzej i wypisany w konsoli
-    function addQuestion(array, sender, string) {
+    function addQuestion(array, string, sender) {
         try {
             // w drugim projekcie bedzie dodane tutaj rowniez zapisywanie pytan do pliku json z wykorzystaniem NodeJS
             // addToDBFile();
-            let q = [sender, string];
+            let q = [string, sender];
             array.push(q);
             // funkcja przyjmuje tablice skladajaca sie z 2-elementowych podtablic, dlatego konieczny jest taki zapis
             writeAwaitingQuestionsToHTML([q]);
