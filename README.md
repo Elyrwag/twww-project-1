@@ -7,7 +7,7 @@
 </p>
 <p>
     Strona dostępna jest również na serwerze Studenckiej Pracowni Komputerowej pod tym linkiem:<br>
-    <a href="http://spk-www.if.uj.edu.pl/~konefal_1184429/twww/html/main.html">
+    <a href="http://spk-www.if.uj.edu.pl/~konefal_1184429/twww/html/main.html" target="_blank" rel=”noreferrer” title="Strona na serwerze">
         http://spk-www.if.uj.edu.pl/~konefal_1184429/twww/html/main.html    
     </a>
 </p>
