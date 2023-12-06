@@ -13,7 +13,7 @@
 <body>
 <div class="p-0">
     <!-- menu -->
-    <div id="menu" class="col-auto p-2 border-right navbar bg-dark align-items-center">
+    <div id="menu" class="p-2 border-right navbar bg-dark align-items-center">
         <nav id="menu-navbar" aria-label="menu-navbar" class="row justify-content-center h-100 px-1 custom-text-color">
             <h1>Menu</h1>
             <!-- strona glowna -->
@@ -86,7 +86,7 @@
         </nav>
     </div>
     <!-- tutaj ladowany jest content z danej podstrony -->
-    <div class="col p-0 box custom-text-color" id="content-box">
+    <div class="p-0 box custom-text-color" id="content-box">
         <noscript>
             <p style="text-align: center">
                 Upewnij się, że JavaScript jest obsługiwana przez przeglądarkę, a następnie odśwież stronę!
@@ -94,7 +94,7 @@
         </noscript>
     </div>
     <!-- kontakt -->
-    <div id="contact-bar" class="border-left col-auto p-2 bg-dark text-center" data-bs-theme="dark">
+    <div id="contact-bar" class="border-left p-2 text-center" data-bs-theme="dark">
         <img src="../images/toja.jpg" alt="moje-zdjecie" style="width:118px; height:128px; box-shadow: 0 0 5px rgba(0, 0, 0, 0.2)" class="img-thumbnail rounded"/>
         <p class="custom-text-color mt-2">
             <span class="h5">Paweł Konefał</span><br>
@@ -140,8 +140,8 @@
     function changePage(subpage, href) {
         try {
             if (lastPage !== subpage) {
-                lastPage = subpage;
                 loadPage("content-box", subpage);
+                lastPage = subpage;
             } else if (href !== undefined) location.href = href;
         } catch (e) {
             console.log(e);
